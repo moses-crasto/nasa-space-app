@@ -1,0 +1,64 @@
+.tab-container {
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px;
+  background-color: rgba(88, 88, 88, 0.141); /* semi-transparent */
+  backdrop-filter: blur(8px);              /* background blur */
+  -webkit-backdrop-filter: blur(8px);      /* for Safari */
+  border-radius: 9px;
+  opacity: 0.9;
+}
+
+.indicator {
+  width: 150px;
+  height: 28px;
+  background: #4061b6;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 9;
+  border: 0.5px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.12), 0px 3px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 7px;
+  transition: all 0.2s ease-out;
+}
+
+.tab {
+  width: 160px;
+  height: 28px;
+  position: absolute;
+  z-index: 99;
+  outline: none;
+  opacity: 0;
+}
+
+.tab_label {
+  width: 150px;
+  height: 28px;
+  color: #ffffff;
+  position: relative;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.tab_label:hover {
+  opacity: 0.9;
+  color: #ff705a; /* hover text color */
+}
+
+.tab--1:checked ~ .indicator {
+  left: 2px;
+}
+
+.tab--2:checked ~ .indicator {
+  left: calc(150px + 2px);
+}
+
+.tab--3:checked ~ .indicator {
+  left: calc(150px * 2 + 2px);
+}
