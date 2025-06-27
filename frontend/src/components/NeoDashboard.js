@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef} from 'react';
-import axios from 'axios';
+import axios from '../api';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaSearch } from 'react-icons/fa';

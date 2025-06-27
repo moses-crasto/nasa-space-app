@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import axios from '../api';
 import { FaSearch } from 'react-icons/fa';
 
 const rovers = ['curiosity', 'opportunity', 'spirit'];
