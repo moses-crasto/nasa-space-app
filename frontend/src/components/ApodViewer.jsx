@@ -1,6 +1,6 @@
 // frontend/src/components/ApodViewer.jsx
 import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import axios from '../api';
 
 function ApodViewer() {
   const [apod, setApod] = useState(null);
