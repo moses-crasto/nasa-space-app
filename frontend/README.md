@@ -1,69 +1,91 @@
-# 🚀 NASA Space Data Explorer
+# 🚀 NASA Explorer Web App
 
-A full-stack web application that fetches and visualizes space-related data from NASA's Open APIs. Built with **React** for the frontend and **Node.js + Express** for the backend, this app allows users to interact with data such as Near Earth Objects (NEOs) and explore it through rich visualizations and responsive design.
+This is a full-stack web application that displays data from NASA’s public APIs, including the Astronomy Picture of the Day (APOD) and Near Earth Object (NEO) data. Built with **React (Next.js)** for the frontend and **Express.js** for the backend.
 
-## 🌐 Live Demo
+---
 
-🔗 [Deployed App Link](https://your-deployment-url.com)
+## 🔗 Live Demo
 
-## 📂 Project Structure
+- 🌍 Frontend (Vercel): [https://nasa-space-app.vercel.app](https://nasa-space-app.vercel.app)
+- ⚙️ Backend (Render): [https://nasa-space-app-backend.onrender.com](https://nasa-space-app-backend.onrender.com)
 
-├── frontend/ # React frontend
-└── backend/ # Node.js + Express backend
+---
 
-## 🧑‍💻 Features
+## 🛠️ Tech Stack
 
-- 📊 Interactive dashboard with charts and filters
-- 🌌 Data fetched from NASA's public APIs via a secure backend
-- 📱 Fully responsive for mobile and desktop
-- 🔍 User interactivity: filters by date, visualization tooltips, truncation on mobile
-- ⚠️ Handles loading states and errors gracefully
+### Frontend
+- **Framework:** Next.js (React)
+- **Styling:** Tailwind CSS
+- **Hosting:** Vercel
 
-## 📈 NASA APIs Used
+### Backend
+- **Runtime:** Node.js with Express
+- **Routing:** `/api/nasa` handles NASA API requests (APOD & NEO)
+- **Hosting:** Render
+- **CORS-enabled** to allow frontend-backend communication
 
-- [Near Earth Object Web Service (NeoWs)](https://api.nasa.gov/)
-- [Astronomy Picture of the Day (APOD)]
-- Earth Polychromatic Imaging Camera (EPIC)
+---
 
-## ⚙️ Tech Stack
+## 📁 Folder Structure
 
-### Frontend:
-- React
-- Recharts (for charts)
-- Tailwind CSS
-- Axios / Fetch API
+nasa-explorer/
+├── backend/
+│ ├── index.js
+│ ├── routes/
+│ │ └── nasaRoutes.js
+├── frontend/
+│ └── (Next.js app)
+├── .env
+├── README.md
 
-### Backend:
-- Node.js
-- Express
-- dotenv (for environment variables)
+---
 
-## 🧪 Getting Started
+## 🚦 How It Works
 
-### 1. Clone the Repository
+- Users can view:
+  - The **Astronomy Picture of the Day (APOD)**.
+  - A **NEO Dashboard** displaying objects approaching Earth within a date range.
+- The frontend calls the backend, which acts as a proxy to the actual NASA APIs.
 
-```bash
-git clone https://github.com/moses-crasto/nasa-space-explorer.git
-cd nasa-space-explorer
+---
 
-2. Setup Environment Variables
-Create a .env file in the backend folder:
+## 🌐 API Routes
 
-NASA_API_KEY=your_nasa_api_key_here
-PORT=5000
+| Route                       | Description                            |
+|-----------------------------|----------------------------------------|
+| `/api/nasa/apod`            | Returns the Astronomy Picture of the Day |
+| `/api/nasa/neo-dashboard`   | Returns NEO data from a date range       |
+| `/api/nasa/mars-gallery`    | Returns Mars photos from a date range    |
+| `/api/nasa/neo-dashboard`   | Returns Earth Photos from a date         |
 
-You can get a free NASA API key here: https://api.nasa.gov/
+---
 
-3. Install Dependencies
-Backend:
+## 🧪 Run Locally
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/nasa-explorer.git
+   cd nasa-explorer
+
+2. **Install dependencies**
 cd backend
 npm install
-npm run dev
 
+cd ../frontend
+npm install
+
+3. **Set up your .env file (in /backend)**
+NASA_API_KEY=your_nasa_api_key
+PORT=8080
+
+4. **Run locally**
+Backend:
+cd backend
+node index.js
 Frontend:
 cd frontend
-npm install
 npm run dev
 
-The frontend will typically run on http://localhost:3000, and the backend on http://localhost:5000.
-
+Deployment
+Frontend: Deployed on Vercel. Auto-deploys on push to main branch.
+Backend: Deployed on Render. Uses app.listen(PORT) for port binding.
